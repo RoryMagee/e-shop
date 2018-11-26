@@ -11,7 +11,7 @@ export class AppComponent {
   isCollapsed = true;
 
   constructor(private router: Router, private data: DataService) {
-
+    this.data.getProfile();
   }
 
   get token() {
@@ -27,7 +27,7 @@ export class AppComponent {
   }
 
   logout() {
-    console.log('logout');
+    this.data.user = {};
     localStorage.clear(); 
     this.router.navigate(['/']);
   }
