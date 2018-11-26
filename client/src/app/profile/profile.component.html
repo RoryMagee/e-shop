@@ -6,6 +6,7 @@
       <h1 class="text-center display-3 mt-5">
         <i class="fa fa-spinner fa-spin"></i>
       </h1>
+    </div>
       <div *ngIf="data.user" class="row mt-5">
         <div class="col-md-3">
           <img [src]="data.user.picture" alt="userimage" class="rounded-circle image">
@@ -20,6 +21,8 @@
           <br>
           <a routerLink="/profile/address" class="btn btn-warning">Change Shipping Address</a>
           <div *ngIf="data.user.isSeller">
+            <br>
+            <br>
             <p class="lead">Seller Actions</p>
             <hr>
             <div class="row">
@@ -31,7 +34,6 @@
               </div>
             </div>
           </div>
-        </div>
       </div>
     </div> 
   </div>

@@ -41,7 +41,7 @@ UserSchema.methods.gravatar = function(size) {
     if(!this.email) return 'https://gravatar.com/?s' + size + '&d=retro';
     var md5 = crypto.createHash('md5').update(this.email).digest('hex');
 
-    return 'https://gravatar.com/avatar' + md5 + '?s' + size + "&d=retro";
+    return 'https://gravatar.com/avatar/' + md5 + '?s' + size + "&d=retro";
 }
 
 module.exports = mongoose.model('User', UserSchema);
