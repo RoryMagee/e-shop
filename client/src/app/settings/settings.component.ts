@@ -49,9 +49,6 @@ export class SettingsComponent implements OnInit {
       this.data.error("Please enter your name.");
     }
   }
-  async update() {
-    this.btnDisabled = true;
-  }
 
   async update() {
     this.btnDisabled = true;

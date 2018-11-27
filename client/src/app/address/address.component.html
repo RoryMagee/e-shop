@@ -1,3 +1,45 @@
-<p>
-  address works!
-</p>
+<section id="address">
+  <div class="container p-4">
+  <h4 class="display-4">My Address Settings</h4>
+  <hr>
+  <app-message></app-message>
+  <div *ngIf="!currentAddress" class="m-auto">
+    <h1 class="text-center display-3 mt-5">
+      <i class="fa fa-spinner fa-spin"></i>
+    </h1>
+  </div>
+  <div *ngIf="currentAddress" class="card bg-light">
+    <div class="card-body">
+      <form>
+        <div class="form-group">
+          <label class="form-control-label">Address Line 1</label>
+          <input type="text" name="addr1" class="form-control" [(ngModel)]="currentAddress.addr1">
+        </div>
+        <div class="form-group">
+          <label class="form-control-label">Address Line 2</label>
+          <input type="text" name="addr2" class="form-control" [(ngModel)]="currentAddress.addr2">
+        </div>
+          <div class="row">
+            <div class="form-group col-md-4">
+              <label class="form-control-label">City</label>
+              <input type="text" name="city" class="form-control" [(ngModel)]="currentAddress.city">
+            </div>
+            <div class="form-group col-md-4">
+              <label class="form-control-label">State</label>
+              <input type="text" name="State" class="form-control" [(ngModel)]="currentAddress.state">
+            </div>
+            <div class="form-group col-md-4">
+              <label class="form-control-label">Postcode</label>
+              <input type="text" name="postalCode" class="form-control" [(ngModel)]="currentAddress.postalCode">
+            </div>
+          </div>
+        <div class="form-group">
+          <label class="form-control-label">Country</label>
+          <input type="text" name="country" class="form-control" [(ngModel)]="currentAddress.country">
+        </div>
+        <button type="button" class="btn btn-danger" (click)="update()" [disabled]="btnDisabled">Update Address</button>
+      </form>
+    </div>
+  </div>
+  </div>
+</section>
