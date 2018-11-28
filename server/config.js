@@ -1,5 +1,8 @@
+const dotenv = require('dotenv').config();
+
 module.exports = {
-    database: 'mongodb://rory:abc123@ds239903.mlab.com:39903/amazowebappplication',
+    database: 'mongodb://' + process.env.mongo_username + ':' + process.env.mongo_password + '@ds239029.mlab.com:39029/e-shop',
     port: '3030',
-    secret: 'sjkedfnklsjefklsjndfsklnjdf'
+    secret: process.env.mongo_secret
 }
+
