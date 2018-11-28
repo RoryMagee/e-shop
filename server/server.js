@@ -21,7 +21,7 @@ app.use(cors());
 
 const userRoutes = require('./routes/account');
 const mainRoutes = require('./routes/main');
-const sellerRouotes = require('./routes/seller');
+const sellerRoutes = require('./routes/seller');
 app.use('/api/accounts', userRoutes);
 app.use('/api', mainRoutes);
 app.use('/api/seller', sellerRoutes);
