@@ -6,6 +6,7 @@ import { RegistrationComponent } from './registration/registration.component';
 import { LoginComponent } from './login/login.component';
 import { ProfileComponent } from './profile/profile.component';
 import { AddressComponent } from './address/address.component';
+import { CategoriesComponent } from './categories/categories.component';
 
 import { AuthGuardService } from './auth-guard.service';
 import { SettingsComponent } from './settings/settings.component';
@@ -39,6 +40,10 @@ const routes: Routes = [
     path: 'profile/address',
     component: AddressComponent,
     canActivate: [AuthGuardService]
+  },
+  {
+    path: 'categories',
+    component: CategoriesComponent
   },
   {
     path: '**',
