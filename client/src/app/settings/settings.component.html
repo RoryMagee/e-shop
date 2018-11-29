@@ -20,16 +20,17 @@
             <input type="email" name="email" class="form-control" [(ngModel)]="currentSettings.email">
           </div>
           <div class="form-group">
+            <input type="checkbox" name="isSeller" class="form-check-input" [(ngModel)]="currentSettings.isSeller">
+            <label class="form-group-label">Are you a seller?</label>
+          </div>
+          <hr>
+          <div class="form-group">
             <label class="form-control-label">New Password</label>
             <input type="passwrd" name="newPwd" class="form-control" [(ngModel)]="currentSettings.newPwd">
           </div>
           <div class="form-group">
             <label class="form-control-label">Confirm Password</label>
             <input type="password" name="pwdConfirm" class="form-control" [(ngModel)]="currentSettings.pwdConfirm">
-          </div>
-          <div class="form-group">
-            <input type="checkbox" name="isSeller" class="form-check-input" [(ngModel)]="currentSettings.isSeller">
-            <label class="form-group-label">Are you a seller?</label>
           </div>
           <hr>
           <button type="button" class="btn btn-danger" (click)="update()" [disabled]="btnDisabled">Update</button>
