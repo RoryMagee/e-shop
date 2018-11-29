@@ -7,6 +7,7 @@ import { LoginComponent } from './login/login.component';
 import { ProfileComponent } from './profile/profile.component';
 import { AddressComponent } from './address/address.component';
 import { CategoriesComponent } from './categories/categories.component';
+import { PostProductComponent } from './post-product/post-product.component';
 
 import { AuthGuardService } from './auth-guard.service';
 import { SettingsComponent } from './settings/settings.component';
@@ -44,6 +45,11 @@ const routes: Routes = [
   {
     path: 'categories',
     component: CategoriesComponent
+  },
+  {
+    path: 'profile/postproduct',
+    component: PostProductComponent,
+    canActivate: [AuthGuardService]
   },
   {
     path: '**',
