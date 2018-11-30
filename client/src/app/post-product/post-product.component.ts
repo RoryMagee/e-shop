@@ -54,8 +54,11 @@ export class PostProductComponent implements OnInit {
             }
           }
         }
-        const data = await this.rest.post('http://localhost/api/profile/postproduct', form);
-        data['success'] ? this.data.success(data['message']) : this.data.error(data['message']);
+        const data = await this.rest.post('http://localhost:3030/api/seller/products', form);
+        data['success'] ? this.router.navigate(['/profile/myproducts'])
+        .then(()=> this.data.success(data['message']))
+        .catch(error => this.data.error(error))
+         : this.data.error(data['message']);
       }
     } catch (error) {
       this.data.error(error['message']);

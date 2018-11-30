@@ -35,6 +35,7 @@ export class CategoriesComponent implements OnInit {
     } catch (error) {
       this.data.error(error['message']);
     }
+    this.ngOnInit();
     this.btnDisabled = false;
   }
 

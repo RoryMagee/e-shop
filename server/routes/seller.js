@@ -19,7 +19,8 @@ const upload = multer({
             cb(null, {fieldName: file.fieldname});
         },
         key: function (req, file, cb) {
-            cb(null, Date.now().toString())
+            console.log(file);
+            cb(null, Date.now().toString());
         }
     })
 });
@@ -32,7 +33,7 @@ router.route('/products')
         .exec((err, products) => {
             if(products) {
                 res.json({
-                    sucecss: true,
+                    success: true,
                     message: "products",
                     products: products
                 });
