@@ -9,7 +9,7 @@
       </h1>
     </div>
     <div *ngIf="categories" class="list-group">
-      <a *ngFor="let category of categories" routerLink="/categories/{{ category._id}}" class="list-group-item list-group-item-action">
+      <a *ngFor="let category of categories" routerLink="/category/{{ category._id}}" class="list-group-item list-group-item-action">
       {{ category.name }}
     </a>
     </div>

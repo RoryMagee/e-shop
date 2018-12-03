@@ -91,7 +91,7 @@ router.get('/categories/:id', (req, res, next)=> {
             success: true,
             message: 'categories',
             products: products,
-            categoryName: category.name,
+            //categoryName: category.name,
             totalProducts: totalProducts,
             pages: Math.ceil(totalProducts / perPage)
         });
