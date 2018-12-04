@@ -2,6 +2,7 @@ const router = require('express').Router();
 const Category = require('../models/category');
 const Product = require('../Models/product');
 const async = require('async');
+const checkJWT = require('../Middleware/check-jwt');
 
 router.get('/products', (req, res, next)=> {
     const perPage = 10;
@@ -47,7 +48,7 @@ router.route('/categories')
             });
         });
     })
-    .post((req, res, next) => {
+    .post(checkJWT,(req, res, next) => {
         let category = new Category();
         category.name = req.body.category;
         category.save();

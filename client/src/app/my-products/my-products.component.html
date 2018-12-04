@@ -22,13 +22,13 @@
           <div *ngFor="let product of myProducts" class="list-group-item">
             <div class="row">
               <div class="col-4 col-md-2">
-                <a routerLink="/product/{{ product.id }}">
+                <a routerLink="/product/{{ product._id }}">
                   <img src="{{ product.image }}" class="img-fluid img-thumbnail">
                 </a>
               </div>
               <div class="col-5 col-md-8">
                 <h5>
-                  <a routerLink="/product/{{ product.id }}">{{ product.title }}</a>
+                  <a routerLink="/product/{{ product._id }}">{{ product.title }}</a>
                   <p class="m-0">
                     <small class="text-muted">{{ product.category.name }}</small>
                   </p>
