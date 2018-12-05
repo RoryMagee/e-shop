@@ -12,4 +12,27 @@
       </ng-template>
     </ngb-carousel>
   </div>
+  <div class="container p-5">
+    <app-message></app-message>
+    <p class="lead">
+      <b>Deals:</b>
+    </p>
+    <div class="row">
+      <div *ngIf="!products" class="m-auto">
+        <h1 class="text-center display-3 mt-5">
+          <i class="fa fa-spinner fa-spin"></i>
+        </h1>
+      </div>
+      <div *ngFor="let prod of products" class="col-md-3 mb-5">
+        <a routerLink="/product/{{ prod._id }}">
+        <div class="card bg-light">
+          <img src="{{ prod.image }}" alt="productImage" class="card-img-top">
+          <div class="card-body">
+            <h5 class="card-title">{{ prod.title }}</h5>
+            <p class="card-text">{{ prod.price | currency }}</p>
+          </div>
+        </div></a>
+      </div>
+    </div>
+  </div>
 </section>

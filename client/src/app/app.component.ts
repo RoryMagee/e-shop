@@ -32,5 +32,7 @@ export class AppComponent {
     this.router.navigate(['/']);
   }
 
-  search() {}
+  search() {
+    
+  }
 }

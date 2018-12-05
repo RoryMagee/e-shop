@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { RestApiService } from '../rest-api.service';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-home',
@@ -6,10 +8,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+  products: any;
 
-  constructor() { }
+  constructor(private rest: RestApiService, private data: DataService) {
 
-  ngOnInit() {
+  }
+
+  async ngOnInit() {
+    try {
+      const data = await this.rest.get(
+        'http://localhost:3030/api/products'
+      );
+      data['success'] ? this.products = data['products'] : this.data.error("Could not fetch products");
+    } catch(error) {
+      this.data.error(error['message']);
+    }
   }
 
 }
