@@ -11,6 +11,7 @@ import { PostProductComponent } from './post-product/post-product.component';
 import { MyProductsComponent } from './my-products/my-products.component';
 import { CategoryComponent } from './category/category.component';
 import { ProductComponent } from './product/product.component';
+import { SearchComponent } from './search/search.component';
 
 import { AuthGuardService } from './auth-guard.service';
 import { SettingsComponent } from './settings/settings.component';
@@ -66,6 +67,10 @@ const routes: Routes = [
   {
     path: 'product/:id',
     component: ProductComponent
+  },
+  {
+    path: 'search',
+    component: SearchComponent
   },
   {
     path: '**',

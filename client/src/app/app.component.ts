@@ -18,7 +18,7 @@ export class AppComponent {
     return localStorage.getItem('token');
   }
 
-  collape() {
+  collapse() {
     this.isCollapsed = true;
   }
 
@@ -33,6 +33,9 @@ export class AppComponent {
   }
 
   search() {
-    
+    if (this.searchTerm) {
+      this.collapse();
+      this.router.navigate(['search', { query: this.searchTerm}]);
+    }
   }
 }
