@@ -47,8 +47,7 @@ const routes: Routes = [
   },
   {
     path: 'categories',
-    component: CategoriesComponent,
-    canActivate: [AuthGuardService]
+    component: CategoriesComponent
   },
   {
     path: 'profile/postproduct',
