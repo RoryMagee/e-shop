@@ -31,7 +31,7 @@
           <div class="card bg-light">
             <div class="card-body">
               <h5 class="card-title">Price: {{ product.price | currency }}</h5>
-              <a class="btn btn-warning">Add to Basket</a>
+              <a class="btn btn-warning btn-block" (click)="addToCart()">Add to Basket</a>
             </div>
           </div>
         </div>

@@ -131,7 +131,7 @@ router.post('/payment', checkJWT, (req, res, next) => {
         source: stripeToken.id
     })
     .then(function(customer) {
-        return stripe.chargers.create({
+        return stripe.charges.create({
             amount: currentCharge,
             currency: 'usd',
             customer: customer.id
