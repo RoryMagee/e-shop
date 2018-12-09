@@ -1,8 +1,13 @@
 const router = require('express').Router();
-const Category = require('../models/category');
-const Product = require('../Models/product');
 const async = require('async');
 const checkJWT = require('../Middleware/check-jwt');
+const stripe = require('stripe')(process.env.stripe_key);
+
+
+const Category = require('../models/category');
+const Product = require('../Models/product');
+const Order = require('../Models/order');
+
 
 router.get('/products', (req, res, next)=> {
     const perPage = 10;
@@ -115,6 +120,39 @@ router.get('/products/:id', (req, res, next)=> {
                 product: product
             });
         }
+    });
+});
+
+router.post('/payment', (req, res, next) => {
+    const stripeToken = req.body.stripeToken;
+    const currentCharge = Math.round(req.body.totalPrice * 100);
+
+    stripe.customers.create({
+        source: stripeToken.id
+    })
+    .then(function(customer) {
+        return stripe.chargers.create({
+            amount: currentCharge,
+            currency: 'usd',
+            customer: customer.id
+        });
+    })
+    .then(function(charge) {
+        const products = req.body.products;
+        let order = new Order();
+        order.owner = req.decoded.user._id;
+        order.totalPrice = currentCharge;
+        products.map(product => {
+            order.products.push({
+                product = product.product,
+                quantity = product.quantity
+            });
+        });
+        order.save();
+        res.json({
+            success: true,
+            message: "Successfully made payment"  
+        });
     });
 });
 
