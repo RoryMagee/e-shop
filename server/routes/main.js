@@ -123,7 +123,7 @@ router.get('/products/:id', (req, res, next)=> {
     });
 });
 
-router.post('/payment', (req, res, next) => {
+router.post('/payment', checkJWT, (req, res, next) => {
     const stripeToken = req.body.stripeToken;
     const currentCharge = Math.round(req.body.totalPrice * 100);
 
@@ -144,8 +144,8 @@ router.post('/payment', (req, res, next) => {
         order.totalPrice = currentCharge;
         products.map(product => {
             order.products.push({
-                product = product.product,
-                quantity = product.quantity
+                product: product.product,
+                quantity: product.quantity
             });
         });
         order.save();
