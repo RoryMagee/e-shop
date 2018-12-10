@@ -21,7 +21,17 @@ app.use(express.static('dist/AngularEShop'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(morgan('dev'));
-app.use(cors());
+//app.use(cors());
+
+app.use(function(req, res, next) {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
+    if(req.method === 'OPTIONS') {
+        res.header('Access-Control-Allow-Methods', 'PUT, POST, PATCH, DELETE, GET');
+        return res.status(200).json({});
+    }
+    next();
+});
 
 app.set('port', config.port);
 
@@ -29,11 +39,6 @@ const userRoutes = require('./routes/account');
 const mainRoutes = require('./routes/main');
 const sellerRoutes = require('./routes/seller');
 const productSearchRoutes = require('./routes/search');
-
-// app.get('*', (req, res) => {
-//     res.sendFile(path.join(__dirname, 'dist/AngularEShop/index.html'));
-//   });
-
 app.use('/api/accounts', userRoutes);
 app.use('/api', mainRoutes);
 app.use('/api/seller', sellerRoutes);
@@ -42,5 +47,5 @@ app.use('/api/search', productSearchRoutes);
 var server = http.createServer(app);
 
 app.listen(config.port, (err) => {
-    console.log("Server Running on port " + config.port);
+    console.log("Server listening on port 3030");
 })
