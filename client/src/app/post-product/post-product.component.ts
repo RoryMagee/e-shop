@@ -25,7 +25,7 @@ export class PostProductComponent implements OnInit {
 
   async ngOnInit() {
     try {
-      const data = await this.rest.get('http://localhost:3030/api/categories');
+      const data = await this.rest.get('http://localhost:8081/api/categories');
       data['success'] ? this.categories = data['categories'] : this.data.error(data['message']);
     } catch (error) {
       this.data.error(error['message']);
@@ -54,7 +54,7 @@ export class PostProductComponent implements OnInit {
             }
           }
         }
-        const data = await this.rest.post('http://localhost:3030/api/seller/products', form);
+        const data = await this.rest.post('http://localhost:8081/api/seller/products', form);
         data['success'] ? this.router.navigate(['/profile/myproducts'])
         .then(()=> this.data.success(data['message']))
         .catch(error => this.data.error(error))

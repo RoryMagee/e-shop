@@ -13,7 +13,7 @@ export class AddressComponent implements OnInit {
 
   async ngOnInit() {
     try {
-      const data = await this.rest.get('http://localhost:3030/api/accounts/address');
+      const data = await this.rest.get('http://localhost:8081/api/accounts/address');
       if(JSON.stringify(data['address']) === '{}' && this.data.message === '') {
         this.data.warning('You have not entered a shipping address');
       }
@@ -57,7 +57,7 @@ export class AddressComponent implements OnInit {
     try {
       if(this.validate(this.currentAddress)) {
         const data = await this.rest.post(
-          'http://localhost:3030/api/accounts/address',
+          'http://localhost:8081/api/accounts/address',
           {
             addr1: this.currentAddress['addr1'],
             addr2: this.currentAddress['addr2'],

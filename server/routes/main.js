@@ -4,7 +4,7 @@ const checkJWT = require('../Middleware/check-jwt');
 const stripe = require('stripe')(process.env.stripe_key);
 
 
-const Category = require('../models/category');
+const Category = require('../Models/category');
 const Product = require('../Models/product');
 const Order = require('../Models/order');
 

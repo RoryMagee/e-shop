@@ -29,7 +29,7 @@ export class ProductComponent implements OnInit {
     }
     try {
       const data = await this.rest.get(
-        'http://localhost:3030/api/products/' + this.productId
+        'http://localhost:8081/api/products/' + this.productId
       );
       data['success'] ? (this.product = data['product']) : this.data.error(data['message']);
     } catch (error) {
