@@ -14,6 +14,8 @@ mongoose.connect(config.database, (err) => {
         console.log("Connected to DB");
     }
 });
+
+app.use(express.static('dist'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(morgan('dev'));
