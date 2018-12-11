@@ -25,7 +25,7 @@ export class PostProductComponent implements OnInit {
 
   async ngOnInit() {
     try {
-      const data = await this.rest.get('http://localhost:8081/api/categories');
+      const data = await this.rest.get('http://shop.snspbvwdfe.eu-west-1.elasticbeanstalk.com/api/categories');
       data['success'] ? this.categories = data['categories'] : this.data.error(data['message']);
     } catch (error) {
       this.data.error(error['message']);

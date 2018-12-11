@@ -17,7 +17,7 @@ export class HomeComponent implements OnInit {
   async ngOnInit() {
     try {
       const data = await this.rest.get(
-        'http://localhost:8081/api/products'
+        'http://shop.snspbvwdfe.eu-west-1.elasticbeanstalk.com/api/products'
       );
       data['success'] ? this.products = data['products'] : this.data.error("Could not fetch products");
     } catch(error) {

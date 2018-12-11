@@ -29,7 +29,7 @@ export class ProductComponent implements OnInit {
     }
     try {
       const data = await this.rest.get(
-        'http://localhost:8081/api/products/' + this.productId
+        'http://shop.snspbvwdfe.eu-west-1.elasticbeanstalk.com/api/products/' + this.productId
       );
       data['success'] ? (this.product = data['product']) : this.data.error(data['message']);
     } catch (error) {

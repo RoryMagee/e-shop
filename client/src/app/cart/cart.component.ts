@@ -55,7 +55,7 @@ export class CartComponent implements OnInit {
         });
         try {
           const data = await this.rest.post(
-            'http://localhost:8081/api/payment',
+            'http://shop.snspbvwdfe.eu-west-1.elasticbeanstalk.com/api/payment',
             {
               totalPrice: this.cartTotal,
               products,

@@ -50,7 +50,7 @@ export class RegistrationComponent implements OnInit {
     try {
       if(this.validate()) {
         const data = await this.rest.post(
-          'http://localhost:8081/api/accounts/signup',
+          'http://shop.snspbvwdfe.eu-west-1.elasticbeanstalk.com/api/accounts/signup',
           {
             name: this.name,
             email: this.email,

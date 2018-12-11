@@ -55,7 +55,7 @@ export class SettingsComponent implements OnInit {
     try {
       if(this.validate(this.currentSettings)) {
         const data = await this.rest.post(
-          'http://localhost:8081/api/accounts/profile',
+          'http://shop.snspbvwdfe.eu-west-1.elasticbeanstalk.com/api/accounts/profile',
           {
             name: this.currentSettings['name'],
             email: this.currentSettings['email'],

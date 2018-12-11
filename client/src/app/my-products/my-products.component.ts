@@ -15,7 +15,7 @@ export class MyProductsComponent implements OnInit {
 
   async ngOnInit() {
     try {
-      const data = await this.rest.get('http://localhost:8081/api/seller/products');
+      const data = await this.rest.get('http://shop.snspbvwdfe.eu-west-1.elasticbeanstalk.com/api/seller/products');
       data['success'] ? (this.myProducts = data['products']) : this.data.error(data['message']);
     } catch (error) {
       this.data.error(error['message']);

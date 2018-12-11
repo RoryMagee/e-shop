@@ -37,7 +37,7 @@ export class LoginComponent implements OnInit {
     try {
       if(this.validate()) {
         const data = await this.rest.post(
-          'http://localhost:8081/api/accounts/login',
+          'http://shop.snspbvwdfe.eu-west-1.elasticbeanstalk.com/api/accounts/login',
           {
             email: this.email,
             password: this.password

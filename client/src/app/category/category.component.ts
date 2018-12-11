@@ -38,7 +38,7 @@ export class CategoryComponent implements OnInit {
     }
     try {
       const data = await this.rest.get(
-        'http://localhost:8081/api/categories/' + this.categoryId + '?page=' + (this.page - 1).toString()
+        'http://shop.snspbvwdfe.eu-west-1.elasticbeanstalk.com/api/categories/' + this.categoryId + '?page=' + (this.page - 1).toString()
         );
       data['success'] ? (this.category = data) : this.data.error(data['message']);
     } catch (error){
