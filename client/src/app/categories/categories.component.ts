@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RestApiService } from '../rest-api.service';
 import { DataService } from '../data.service';
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-categories',
@@ -17,7 +18,7 @@ export class CategoriesComponent implements OnInit {
 
   async ngOnInit() {
     try {
-      const data = await this.rest.get('http://shop.snspbvwdfe.eu-west-1.elasticbeanstalk.com/api/categories');
+      const data = await this.rest.get(environment.url + '/api/categories');
       data['success'] ? (this.categories = data['categories']) : this.data.error(data['message'])
     } catch (error) {
       this.data.error(error['message']);
@@ -27,7 +28,7 @@ export class CategoriesComponent implements OnInit {
   async addCategory() {
     this.btnDisabled = true;
     try {
-      const data = await this.rest.post('http://shop.snspbvwdfe.eu-west-1.elasticbeanstalk.com/api/categories',
+      const data = await this.rest.post(environment.url + '/api/categories',
       {
         category: this.newCategory
       });

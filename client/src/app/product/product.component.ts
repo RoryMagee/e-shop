@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { RestApiService } from '../rest-api.service';
 import { DataService } from '../data.service';
 import { ActivatedRoute } from '@angular/router';
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-product',
@@ -29,7 +30,7 @@ export class ProductComponent implements OnInit {
     }
     try {
       const data = await this.rest.get(
-        'http://shop.snspbvwdfe.eu-west-1.elasticbeanstalk.com/api/products/' + this.productId
+        environment.url + '/api/products/' + this.productId
       );
       data['success'] ? (this.product = data['product']) : this.data.error(data['message']);
     } catch (error) {

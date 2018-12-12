@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { RestApiService } from '../rest-api.service';
 import { DataService } from '../data.service';
 import { THROW_IF_NOT_FOUND } from '@angular/core/src/di/injector';
+import { environment } from '../../environments/environment';
+
 @Component({
   selector: 'app-post-product',
   templateUrl: './post-product.component.html',
@@ -25,7 +27,7 @@ export class PostProductComponent implements OnInit {
 
   async ngOnInit() {
     try {
-      const data = await this.rest.get('http://shop.snspbvwdfe.eu-west-1.elasticbeanstalk.com/api/categories');
+      const data = await this.rest.get(environment.url + '/api/categories');
       data['success'] ? this.categories = data['categories'] : this.data.error(data['message']);
     } catch (error) {
       this.data.error(error['message']);
@@ -54,7 +56,7 @@ export class PostProductComponent implements OnInit {
             }
           }
         }
-        const data = await this.rest.post('http://localhost:8081/api/seller/products', form);
+        const data = await this.rest.post(environment.url + '/api/seller/products', form);
         data['success'] ? this.router.navigate(['/profile/myproducts'])
         .then(()=> this.data.success(data['message']))
         .catch(error => this.data.error(error))

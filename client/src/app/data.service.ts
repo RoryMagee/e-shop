@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { NavigationStart, Router } from '@angular/router';
 import { ArgumentType } from '@angular/compiler/src/core';
 import { RestApiService } from './rest-api.service';
+import { environment } from '../environments/environment';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -39,7 +41,7 @@ export class DataService {
     try {
       if(localStorage.getItem('token')) {
         const data = await this.rest.get(
-          'http://shop.snspbvwdfe.eu-west-1.elasticbeanstalk.com/api/accounts/profile'
+          environment.url + '/api/accounts/profile'
         );
         this.user = data['user'];
       }

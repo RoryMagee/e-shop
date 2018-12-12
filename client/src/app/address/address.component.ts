@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
 import { RestApiService } from '../rest-api.service';
+import { environment } from '../../environments/environment';
 @Component({
   selector: 'app-address',
   templateUrl: './address.component.html',
@@ -13,7 +14,7 @@ export class AddressComponent implements OnInit {
 
   async ngOnInit() {
     try {
-      const data = await this.rest.get('http://shop.snspbvwdfe.eu-west-1.elasticbeanstalk.com/api/accounts/address');
+      const data = await this.rest.get(environment.url + '/api/accounts/address');
       if(JSON.stringify(data['address']) === '{}' && this.data.message === '') {
         this.data.warning('You have not entered a shipping address');
       }

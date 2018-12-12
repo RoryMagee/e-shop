@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { RestApiService } from '../rest-api.service';
 import { DataService } from '../data.service';
 import { ActivatedRoute } from '@angular/router';
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-search',
@@ -35,7 +36,7 @@ export class SearchComponent implements OnInit {
   async getProducts() {
     this.content = null;
     try {
-      const data = await this.rest.get('http://shop.snspbvwdfe.eu-west-1.elasticbeanstalk.com/api/search?query=' + this.query + '&page=' + (this.page - 1));
+      const data = await this.rest.get(environment.url + '/api/search?query=' + this.query + '&page=' + (this.page - 1));
       data['success'] ? (this.content = data['content']) : this.data.error(data['message']);
     } catch(error) {
       this.data.error(error['message']);

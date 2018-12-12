@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
 import { RestApiService } from '../rest-api.service';
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-settings',
@@ -55,7 +56,7 @@ export class SettingsComponent implements OnInit {
     try {
       if(this.validate(this.currentSettings)) {
         const data = await this.rest.post(
-          'http://shop.snspbvwdfe.eu-west-1.elasticbeanstalk.com/api/accounts/profile',
+          environment.url + '/api/accounts/profile',
           {
             name: this.currentSettings['name'],
             email: this.currentSettings['email'],

@@ -37,5 +37,5 @@ app.use('/api/search', productSearchRoutes);
 var server = http.createServer(app);
 
 app.listen(config.port, (err) => {
-    console.log("Server listening on port 3030");
+    console.log("Server listening on port " + config.port);
 })

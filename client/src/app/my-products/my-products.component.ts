@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
 import { RestApiService } from '../rest-api.service';
+import { environment } from '../../environments/environment';
+
 @Component({
   selector: 'app-my-products',
   templateUrl: './my-products.component.html',
@@ -15,7 +17,7 @@ export class MyProductsComponent implements OnInit {
 
   async ngOnInit() {
     try {
-      const data = await this.rest.get('http://shop.snspbvwdfe.eu-west-1.elasticbeanstalk.com/api/seller/products');
+      const data = await this.rest.get(environment.url + '/api/seller/products');
       data['success'] ? (this.myProducts = data['products']) : this.data.error(data['message']);
     } catch (error) {
       this.data.error(error['message']);

@@ -3,6 +3,7 @@ import { RestApiService } from '../rest-api.service';
 import { DataService } from '../data.service';
 import { ActivatedRoute } from '@angular/router';
 import { analyzeAndValidateNgModules } from '@angular/compiler';
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-category',
@@ -38,7 +39,7 @@ export class CategoryComponent implements OnInit {
     }
     try {
       const data = await this.rest.get(
-        'http://shop.snspbvwdfe.eu-west-1.elasticbeanstalk.com/api/categories/' + this.categoryId + '?page=' + (this.page - 1).toString()
+        environment.url + '/api/categories/' + this.categoryId + '?page=' + (this.page - 1).toString()
         );
       data['success'] ? (this.category = data) : this.data.error(data['message']);
     } catch (error){

@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router} from '@angular/router';
 import { DataService } from '../data.service';
 import { RestApiService } from '../rest-api.service';
+import { environment } from '../../environments/environment';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -37,7 +39,7 @@ export class LoginComponent implements OnInit {
     try {
       if(this.validate()) {
         const data = await this.rest.post(
-          'http://shop.snspbvwdfe.eu-west-1.elasticbeanstalk.com/api/accounts/login',
+          environment.url + '/api/accounts/login',
           {
             email: this.email,
             password: this.password
