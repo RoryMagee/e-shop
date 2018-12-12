@@ -104,6 +104,27 @@ router.get('/categories/:id', (req, res, next)=> {
     });
 });
 
+router.get('/orders', checkJWT, (req, res, next) => {
+    Order.find({
+        owner: req.decoded.user._id
+    })
+    .populate('User')
+    .populate('products.product')
+    .exec((err, order) => {
+        if(err) {
+            res.json({
+                success: false,
+                message: 'Order not found'
+            });
+        } else if (order) {
+            res.json({
+                success: true,
+                order: order
+            });
+        }
+    });
+});
+
 router.get('/products/:id', (req, res, next)=> {
     Product.findById({_id: req.params.id})
     .populate('owner')

@@ -1,0 +1,46 @@
+<section id="orders">
+  <div class="container p-5">
+    <app-message></app-message>
+    <h4 class="display-4">Orders</h4>
+    <div *ngIf="!orders" class="m-auto">
+      <h1 class="text-center display-3 mt-5">
+        <i class="fa fa-spinner fa-spin"></i>
+      </h1>
+    </div>
+    <h3 *ngIf="orders && !orders.length" class="display-2 text-center mt-5">No Orders</h3>
+    <div *ngIf="orders && orders.length" class="row">
+      <div class="col">
+        <hr class="mt-0">
+        <div class="list-group">
+          <div *ngFor="let list of orders" class="list-group-item" routerLink="/products/">
+            <a routerLink="/orders/{{ list._id }}">
+              <h6 class="text-danger">Order ID: {{ list._id }}</h6>
+              <hr>
+              <div *ngFor="let subitem of list['products'] | keyvalue">
+                <div class="row">
+                  <div class="col-4 col-md-2">
+                    <img src="{{ subitem.value.product.image }}" alt="productImage" class="img-fuild img-thumbnail">
+                  </div>
+                  <div class="col-5 col-md-8">
+                    <h5>{{ subitem.value.product.title }}</h5>
+                    <p>
+                      <small class=text-muted>Quantity: {{subitem.value.quantity}}</small>
+                    </p>
+                  </div>
+                  <div class="col-2">
+                    <h6 class="font-wight-bold">{{subitem.value.product.price | currency }}</h6>
+                  </div>
+                  <hr>
+                </div>
+              </div>
+            </a>
+            <hr>
+            <div class="row col-12">
+              <p class="text-right">Total: {{ list.totalPrice | currency }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

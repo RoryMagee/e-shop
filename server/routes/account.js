@@ -42,7 +42,7 @@ router.post('/login', (req, res, next) => {
         if(!user) {
             res.json({
                 success: false,
-                message: "Auth failed" 
+                message: "No email" 
             });
         } else if (user) {
             var validPassword = user.comparePassword(req.body.password);
