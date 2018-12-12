@@ -12,9 +12,10 @@
       <div class="col">
         <hr class="mt-0">
         <div class="list-group">
-          <div *ngFor="let list of orders" class="list-group-item" routerLink="/products/">
-            <a routerLink="/orders/{{ list._id }}">
-              <h6 class="text-danger">Order ID: {{ list._id }}</h6>
+          <div *ngFor="let list of orders" id="test" class="list-group-item mb-3" href="google.com">
+              <a routerLink="{{ list._id }}">
+                <u><h6>Order ID: {{ list._id }}</h6></u>
+              </a>
               <hr>
               <div *ngFor="let subitem of list['products'] | keyvalue">
                 <div class="row">
@@ -33,10 +34,9 @@
                   <hr>
                 </div>
               </div>
-            </a>
             <hr>
             <div class="row col-12">
-              <p class="text-right">Total: {{ list.totalPrice | currency }}</p>
+              <p class="text-right">Total: {{ list.totalPrice/100 | currency }}</p>
             </div>
           </div>
         </div>
