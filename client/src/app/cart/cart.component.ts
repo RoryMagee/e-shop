@@ -71,6 +71,14 @@ export class CartComponent implements OnInit {
   }
 
   validate() {
+    if(!localStorage.getItem('token')) {
+      console.log("no token");
+      this.router.navigate(['/login']).then(() => {
+        this.data.warning('You must be logged in to make a purchase');
+      }) 
+    } else {
+      return true;
+    }
     // console.log("validating");
     // if(!this.quantities.every(data => data > 0)) {
     //   this.data.warning('Quantity must be more than zero');
@@ -92,7 +100,6 @@ export class CartComponent implements OnInit {
     //   this.data.message = '';
     //   return true;
     // }
-    return true;
   }
 
   checkout() {
