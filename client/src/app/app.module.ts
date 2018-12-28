@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
@@ -55,7 +56,7 @@ import { OrderDetailsComponent } from './order-details/order-details.component';
     FormsModule,
     HttpClientModule
   ],
-  providers: [RestApiService, DataService, AuthGuardService],
+  providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}, RestApiService, DataService, AuthGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
