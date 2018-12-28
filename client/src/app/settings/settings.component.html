@@ -20,8 +20,10 @@
             <input type="email" name="email" class="form-control" [(ngModel)]="currentSettings.email">
           </div>
           <div class="form-group">
-            <input type="checkbox" name="isSeller" class="form-check-input" [(ngModel)]="currentSettings.isSeller">
-            <label class="form-group-label">Are you a seller?</label>
+            <label class="form-control-label">
+              <input type="checkbox" name="isSeller" class="form-control-label" [(ngModel)]="currentSettings.isSeller"> Are you a seller?
+            </label>
+            
           </div>
           <hr>
           <div class="form-group">
