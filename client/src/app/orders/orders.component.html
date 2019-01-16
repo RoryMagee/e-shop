@@ -29,14 +29,14 @@
                     </p>
                   </div>
                   <div class="col-2">
-                    <h6 class="font-wight-bold">{{ subitem.value.product.price | currency }}</h6>
+                    <h6 class="font-wight-bold">{{ subitem.value.product.price | currency:'£' }}</h6>
                   </div>
                   <hr>
                 </div>
               </div>
             <hr>
             <div class="row col-12">
-              <p class="text-right">Total: {{ list.totalPrice/100 | currency }}</p>
+              <p class="text-right">Total: {{ list.totalPrice/100 | currency:'£' }}</p>
             </div>
           </div>
         </div>

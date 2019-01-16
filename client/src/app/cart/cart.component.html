@@ -38,7 +38,7 @@
               <a class="text-danger" (click)="removeProduct(i, item)">Delete</a>
             </div>
             <div class="col-1 col-md-2">
-              <h6 class="font-weight-bold text-danger">{{ item.price | currency }}</h6>
+              <h6 class="font-weight-bold text-danger">{{ item.price | currency:'£' }}</h6>
             </div>
             <div class="col-1 m5-5 mt-md-0 p-0">
               <input type="number" class="form-control" min="1" max="99" [(ngModel)]="quantities[i]">
@@ -47,14 +47,14 @@
           <hr>
         </div>
         <h5 class="text-right">Total:
-          <span class="ml-1 font-weight-bold text-danger">{{ cartTotal | currency}}</span>
+          <span class="ml-1 font-weight-bold text-danger">{{ cartTotal | currency:'£' }}</span>
         </h5>
       </div>
       <div class="col-md-3">
         <div class="card bg-light">
           <div class="card-body">
             <h5>Total: 
-              <span class="ml-1 font-weight-bold text-danger">{{ cartTotal | currency }}</span>
+              <span class="ml-1 font-weight-bold text-danger">{{ cartTotal | currency:'£' }}</span>
             </h5>
             <br>
             <button class="btn btn-warning btn-block" (click)="checkout()" [disabled]="btnDisabled">Checkout</button>
@@ -72,8 +72,7 @@
             </p>
           </div>
         </div>
-      </div>
-      
+      </div>      
     </div>
   </div>
 </section>
