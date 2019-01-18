@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  stripeKey: 'pk_test_UBnrp11PoK0nlvCjJWpx8RFz',
+  stripeKey: 'pk_test_qJUlNZIJMpKgn2UkcR3QGObE',
   url: 'http://localhost:8081'
 };
 
