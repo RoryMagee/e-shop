@@ -34,7 +34,7 @@ app.use('/api', mainRoutes);
 app.use('/api/seller', sellerRoutes);
 app.use('/api/search', productSearchRoutes);
 
-var server = http.createServer(app);
+const server = http.createServer(app);
 
 app.listen(config.port, (err) => {
     console.log("Server listening on port " + config.port);

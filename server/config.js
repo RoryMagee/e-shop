@@ -5,4 +5,3 @@ module.exports = {
     port: '8081',
     secret: process.env.mongo_secret
 }
-
