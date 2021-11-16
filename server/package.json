@@ -12,7 +12,7 @@
   "dependencies": {
     "algoliasearch": "^3.31.0",
     "async": "^2.6.1",
-    "aws-sdk": "^2.365.0",
+    "aws-sdk": "^2.814.0",
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.18.3",
     "cors": "^2.8.5",
